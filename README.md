@@ -1,5 +1,5 @@
-##American Parallel
+## American Parallel
 
-###Luke Cleland
+### Luke Cleland
 
 A place for projects, ideas, and apps
