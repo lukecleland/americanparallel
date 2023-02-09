@@ -7,11 +7,27 @@ const openai = new OpenAIApi(configuration);
 const express = require("express");
 var cors = require("cors");
 const http = require("http");
-const socketio = require("socket.io");
 
 const app = express();
 
 app.use(cors());
+
+var server = require("https").createServer(app);
+var fs = require("fs");
+
+const privateKey = fs.readFileSync(
+  "/etc/letsencrypt/live/americanparallel.com/privkey.pem"
+);
+const certificate = fs.readFileSync(
+  "/etc/letsencrypt/live/americanparallel.com/fullchain.pem"
+);
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+};
+var server = require("https").createServer(credentials, app);
+const socketio = require("socket.io");
+
 const server = http.createServer(app);
 const io = socketio(server);
 
