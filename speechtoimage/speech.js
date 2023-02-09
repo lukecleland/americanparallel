@@ -33,4 +33,4 @@ io.on("connection", (socket) => {
 });
 
 // use express to server the index.html file located in this directory
-app.use(express.static(__dirname));
+//app.use(express.static(__dirname));
