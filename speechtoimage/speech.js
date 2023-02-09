@@ -6,8 +6,6 @@ const openai = new OpenAIApi(configuration);
 const express = require("express");
 const app = express();
 
-var server = require("https").createServer(app);
-
 var cors = require("cors");
 app.use(cors());
 
@@ -23,14 +21,14 @@ const credentials = {
   key: privateKey,
   cert: certificate,
 };
-var server = require("https").createServer(credentials, app);
+
 const socketio = require("socket.io");
 
-const io = socketio(server);
+const io = socketio(app);
 
 const PORT = process.env.PORT || 3002;
 
-server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
 
 io.on("connection", (socket) => {
   socket.on("message", async (message) => {
