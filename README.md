@@ -25,6 +25,14 @@
 ![image](https://img.shields.io/badge/react%20table-FF4154?style=for-the-badge&logo=react%20table&logoColor=white)
 ![image](https://img.shields.io/badge/Selenium-43B02A?style=for-the-badge&logo=Selenium&logoColor=white)
 
-### Luke Cleland. Full Stack Developer, Data Scientist, and Machine Learning Engineer.
+### Luke Cleland. Full Stack Development Software Engineer.
 
 A place for projects, ideas, and apps
+
+### Handtracker test using https://github.com/victordibia/handtrack.js
+
+<https://americanparallel.com/whiplash/>
+
+### Speech to image test between OpenAI and Unsplash
+
+<https://americanparallel.com/speechtoimage/>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      Handtrack.js : A library for prototyping realtime handtracking in the
+      browser.
+    </title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .mb10 {
+        position: absolute;
+      }
+      .playButton {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 100;
+      }
+      #myvideo {
+        filter: grayscale(1);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/carbon-components@latest/css/carbon-components.css"
+    />
+    <link rel="stylesheet" href="css/track.css" />
+  </head>
+
+  <body class="bx--body p20">
+    <audio id="audio" preload="auto" src="Whiplash.mp3#t=00:00:30">></audio>;
+
+    <div class="mb10">
+      <button
+        id="trackbutton"
+        class="bx--btn bx--btn--secondary"
+        type="button"
+        disabled
+      >
+        Enable Video
+      </button>
+      <button
+        id="nextimagebutton"
+        class="mt10 bx--btn bx--btn--secondary"
+        type="button"
+        disabled
+        style="display: none"
+      >
+        Next Image
+      </button>
+      <div id="updatenote" style="display: none" class="updatenote mt10">
+        loading model ..
+      </div>
+    </div>
+    <video
+      style="display: none"
+      class="videobox canvasbox"
+      autoplay="autoplay"
+      id="myvideo"
+    ></video>
+    <canvas
+      id="canvas"
+      class="border canvasbox"
+      style="width: 100%; height: 100%; min-height: 100%; float: left"
+    ></canvas>
+
+    <script src="https://unpkg.com/carbon-components@latest/scripts/carbon-components.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/handtrackjs@0.0.13/dist/handtrack.min.js"> </script> -->
+    <script src="lib/handtrack.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
