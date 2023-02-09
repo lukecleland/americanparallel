@@ -19,6 +19,6 @@
 ![image](https://img.shields.io/badge/ThreeJs-black?style=for-the-badge&logo=three.js&logoColor=white)
 ![image](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
 
-### Luke Cleland
+### Luke Cleland. Full Stack Developer, Data Scientist, and Machine Learning Engineer.
 
 A place for projects, ideas, and apps
