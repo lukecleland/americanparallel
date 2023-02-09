@@ -28,7 +28,6 @@ const credentials = {
 var server = require("https").createServer(credentials, app);
 const socketio = require("socket.io");
 
-const server = http.createServer(app);
 const io = socketio(server);
 
 const PORT = process.env.PORT || 3002;
