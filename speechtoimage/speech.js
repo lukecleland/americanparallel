@@ -4,15 +4,14 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+var server = require("https").createServer(app);
 const express = require("express");
 var cors = require("cors");
-const http = require("http");
 
 const app = express();
 
 app.use(cors());
 
-var server = require("https").createServer(app);
 var fs = require("fs");
 
 const privateKey = fs.readFileSync(
