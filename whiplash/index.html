@@ -2,10 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>
-      Handtrack.js : A library for prototyping realtime handtracking in the
-      browser.
-    </title>
+    <title>Are you rushing or dragging?</title>
     <style>
       body,
       html {
@@ -26,6 +23,12 @@
       #myvideo {
         filter: grayscale(1);
       }
+      #instructions {
+        background-color: white;
+        color: black;
+        font-family: "Courier New", Courier, monospace;
+        padding: 20px;
+      }
     </style>
     <link
       rel="stylesheet"
@@ -38,6 +41,9 @@
     <audio id="audio" preload="auto" src="Whiplash.mp3#t=00:00:30">></audio>;
 
     <div class="mb10">
+      <div id="instructions">
+        Control the music with an open or closed hand.
+      </div>
       <button
         id="trackbutton"
         class="bx--btn bx--btn--secondary"
