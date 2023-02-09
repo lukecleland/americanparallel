@@ -3,13 +3,12 @@ const configuration = new Configuration({
   apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
-
-var server = require("https").createServer(app);
 const express = require("express");
-var cors = require("cors");
-
 const app = express();
 
+var server = require("https").createServer(app);
+
+var cors = require("cors");
 app.use(cors());
 
 var fs = require("fs");
