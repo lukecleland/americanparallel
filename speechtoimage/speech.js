@@ -15,7 +15,7 @@ app.use(cors());
 const server = http.createServer(app);
 const io = socketio(server);
 
-const PORT = process.env.PORT || 4012;
+const PORT = process.env.PORT || 3002;
 
 server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
 
