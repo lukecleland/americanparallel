@@ -16,7 +16,7 @@ const privateKey = fs.readFileSync(
   "/etc/letsencrypt/live/americanparallel.com/privkey.pem"
 );
 const certificate = fs.readFileSync(
-  "/etc/letsencrypt/live/americanparallel.com/fullchain.pem"
+  "/etc/letsencrypt/live/americanparallel.com/cert.pem"
 );
 const credentials = {
   key: privateKey,
