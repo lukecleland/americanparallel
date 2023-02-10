@@ -6,12 +6,13 @@ const openai = new OpenAIApi(configuration);
 
 const express = require("express");
 var cors = require("cors");
+const https = require("https");
+const fs = require("fs");
+const socketio = require("socket.io");
+
 const app = express();
 
 app.use(cors());
-
-const https = require("https");
-const fs = require("fs");
 
 // Read in the SSL/TLS certificates and private key
 const privateKey = fs.readFileSync(
@@ -24,11 +25,12 @@ const certificate = fs.readFileSync(
 );
 const credentials = { key: privateKey, cert: certificate };
 
-// Create a HTTPS server using the certificates and private key
 const server = https.createServer(credentials, app);
+const io = socketio(server);
 
-// Start a socket.io instance using the HTTPS server
-const io = require("socket.io")(server);
+const PORT = process.env.PORT || 4002;
+
+server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
 
 io.on("connection", (socket) => {
   socket.on("message", async (message) => {
@@ -41,12 +43,6 @@ io.on("connection", (socket) => {
 
     io.emit("image", response.data.data[0].url);
   });
-});
-
-// Start the HTTPS server on a specified port
-const port = 4002;
-server.listen(port, () => {
-  console.log(`Server started on port ${port}`);
 });
 
 // use express to server the index.html file located in this directory
