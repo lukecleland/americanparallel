@@ -4,8 +4,12 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
+var cors = require("cors");
 const express = require("express");
 const app = express();
+
+app.use(cors());
+
 const https = require("https");
 const fs = require("fs");
 
