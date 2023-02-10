@@ -10,7 +10,7 @@ const app = express();
 
 app.use(cors());
 
-var server = require("https").createServer(app);
+//var server = require("https").createServer(app);
 
 var fs = require("fs");
 
@@ -28,9 +28,7 @@ const credentials = {
 var server = require("https").createServer(credentials, app);
 var io = require("socket.io")(server);
 
-const PORT = process.env.PORT || 3002;
-
-server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
+const PORT = process.env.PORT || 4002;
 
 io.on("connect", (client) => {
   console.log("client connected");
@@ -45,6 +43,8 @@ io.on("connect", (client) => {
     client.emit("image", response.data.data[0].url);
   });
 });
+
+server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
 
 // use express to server the index.html file located in this directory
 //app.use(express.static(__dirname));
