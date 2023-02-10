@@ -4,8 +4,8 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-var cors = require("cors");
 const express = require("express");
+var cors = require("cors");
 const app = express();
 
 app.use(cors());
@@ -19,7 +19,7 @@ const privateKey = fs.readFileSync(
   "utf-8"
 );
 const certificate = fs.readFileSync(
-  "/etc/letsencrypt/live/americanparallel.com/cert.pem",
+  "/etc/letsencrypt/live/americanparallel.com/fullchain.pem",
   "utf-8"
 );
 const credentials = { key: privateKey, cert: certificate };
