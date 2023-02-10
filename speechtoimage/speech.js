@@ -47,8 +47,10 @@ io.on("connection", (socket) => {
       })
       .catch((err) => {
         console.log(err);
+      })
+      .then((res) => {
+        console.log(res);
+        io.emit("image", response.res.data[0].url);
       });
-
-    io.emit("image", response.data.data[0].url);
   });
 });
