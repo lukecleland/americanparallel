@@ -19,12 +19,12 @@ const privateKey = fs.readFileSync(
   "utf-8"
 );
 const certificate = fs.readFileSync(
-  "/etc/letsencrypt/live/americanparallel.com/fullchain.pem",
+  "/etc/letsencrypt/live/americanparallel.com/cert.pem",
   "utf-8"
 );
 const credentials = { key: privateKey, cert: certificate };
 
-var http = require("https").Server(options, app);
+var http = require("https").Server(credentials, app);
 var io = require("socket.io")(http);
 
 const PORT = process.env.PORT || 4002;
