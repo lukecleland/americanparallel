@@ -24,7 +24,7 @@ const credentials = {
 
 const socketio = require("socket.io");
 
-const io = socketio(app);
+const io = socketio(https);
 
 const PORT = process.env.PORT || 3002;
 
