@@ -30,7 +30,7 @@ var io = require("socket.io")(server);
 
 const PORT = process.env.PORT || 3002;
 
-app.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
+server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
 
 io.on("connection", (socket) => {
   socket.on("message", async (message) => {
