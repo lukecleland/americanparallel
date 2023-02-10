@@ -10,8 +10,6 @@ const app = express();
 
 app.use(cors());
 
-//var server = require("https").createServer(app);
-
 var fs = require("fs");
 
 const privateKey = fs.readFileSync(
