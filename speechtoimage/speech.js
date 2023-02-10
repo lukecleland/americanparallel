@@ -39,18 +39,15 @@ const io = require("socket.io")(server, {
 io.on("connection", (socket) => {
   socket.on("message", async (message) => {
     console.log(message);
-    const response = await openai
-      .createImage({
-        prompt: message,
-        n: 1,
-        size: "256x256",
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .then((res) => {
-        console.log(res);
-        io.emit("image", response.res.data[0].url);
-      });
+    const response = await openai.createImage({
+      prompt: message,
+      n: 1,
+      size: "256x256",
+    });
+    // .catch((err) => {
+    //   console.log(err);
+    // });
+
+    io.emit("image", response.data.data[0].url);
   });
 });
