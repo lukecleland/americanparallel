@@ -66,11 +66,18 @@ var server = https.createServer(
 
 // start listening
 server.listen(4002, function () {
-  console.log("listening on *:3000");
+  console.log("listening on *:4002");
 });
 
 // io client
-var io = require("socket.io")(server);
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "https://americanparallel.com",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["*"],
+    credentials: true,
+  },
+});
 
 // testing connection
 io.on("connection", function (socket) {
