@@ -70,7 +70,7 @@ server.listen(4002, function () {
 });
 
 // io client
-var io = require("socket.io").listen(server);
+var io = require("socket.io")(server);
 
 // testing connection
 io.on("connection", function (socket) {
