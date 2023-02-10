@@ -32,8 +32,9 @@ const PORT = process.env.PORT || 3002;
 
 server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
 
-io.on("connection", (socket) => {
-  socket.on("message", async (message) => {
+io.on("connect", (client) => {
+  console.log("client connected");
+  client.on("message", async (message) => {
     console.log(message);
     const response = await openai.createImage({
       prompt: message,
@@ -41,7 +42,7 @@ io.on("connection", (socket) => {
       size: "256x256",
     });
 
-    io.emit("image", response.data.data[0].url);
+    client.emit("image", response.data.data[0].url);
   });
 });
 
