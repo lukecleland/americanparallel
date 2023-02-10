@@ -3,11 +3,14 @@ const configuration = new Configuration({
   apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
+
 const express = require("express");
+var cors = require("cors");
 const app = express();
 
-var cors = require("cors");
 app.use(cors());
+
+var server = require("https").createServer(app);
 
 var fs = require("fs");
 
@@ -22,9 +25,8 @@ const credentials = {
   cert: certificate,
 };
 
-const socketio = require("socket.io");
-
-const io = socketio(https);
+var server = require("https").createServer(credentials, app);
+var io = require("socket.io")(server);
 
 const PORT = process.env.PORT || 3002;
 
