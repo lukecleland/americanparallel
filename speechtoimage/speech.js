@@ -4,7 +4,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-console.lof(process.env.OPENAI_KEY);
+console.log(process.env.OPENAI_KEY);
 
 var app = require("express")();
 var https = require("https");
