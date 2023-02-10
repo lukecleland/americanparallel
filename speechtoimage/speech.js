@@ -5,30 +5,26 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const express = require("express");
-var cors = require("cors");
 const app = express();
+const https = require("https");
+const fs = require("fs");
 
-app.use(cors());
-
-var fs = require("fs");
-
+// Read in the SSL/TLS certificates and private key
 const privateKey = fs.readFileSync(
-  "/etc/letsencrypt/live/americanparallel.com/privkey.pem"
+  "/etc/letsencrypt/live/americanparallel.com/privkey.pem",
+  "utf-8"
 );
 const certificate = fs.readFileSync(
-  "/etc/letsencrypt/live/americanparallel.com/cert.pem"
+  "/etc/letsencrypt/live/americanparallel.com/cert.pem",
+  "utf-8"
 );
-const credentials = {
-  key: privateKey,
-  cert: certificate,
-};
+const credentials = { key: privateKey, cert: certificate };
 
-var server = require("https").createServer(credentials, app);
-var io = require("socket.io")(server);
+// Create a HTTPS server using the certificates and private key
+const server = https.createServer(credentials, app);
 
-const PORT = process.env.PORT || 4002;
-
-app.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
+// Start a socket.io instance using the HTTPS server
+const io = require("socket.io")(server);
 
 io.on("connection", (socket) => {
   socket.on("message", async (message) => {
@@ -41,6 +37,12 @@ io.on("connection", (socket) => {
 
     io.emit("image", response.data.data[0].url);
   });
+});
+
+// Start the HTTPS server on a specified port
+const port = 4002;
+server.listen(port, () => {
+  console.log(`Server started on port ${port}`);
 });
 
 // use express to server the index.html file located in this directory
