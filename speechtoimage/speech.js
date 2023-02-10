@@ -28,9 +28,10 @@ var io = require("socket.io")(server);
 
 const PORT = process.env.PORT || 4002;
 
-io.on("connect", (client) => {
-  console.log("client connected");
-  client.on("message", async (message) => {
+app.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
+
+io.on("connection", (socket) => {
+  socket.on("message", async (message) => {
     console.log(message);
     const response = await openai.createImage({
       prompt: message,
@@ -38,11 +39,9 @@ io.on("connect", (client) => {
       size: "256x256",
     });
 
-    client.emit("image", response.data.data[0].url);
+    io.emit("image", response.data.data[0].url);
   });
 });
-
-server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
 
 // use express to server the index.html file located in this directory
 //app.use(express.static(__dirname));
