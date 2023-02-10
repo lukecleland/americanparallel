@@ -8,7 +8,6 @@ const express = require("express");
 var cors = require("cors");
 const https = require("https");
 const fs = require("fs");
-const socketio = require("socket.io");
 
 const app = express();
 
@@ -25,8 +24,8 @@ const certificate = fs.readFileSync(
 );
 const credentials = { key: privateKey, cert: certificate };
 
-const server = https.createServer(credentials, app);
-const io = socketio(server);
+var http = require("https").Server(options, app);
+var io = require("socket.io")(http);
 
 const PORT = process.env.PORT || 4002;
 
