@@ -24,7 +24,7 @@ const certificate = fs.readFileSync(
 );
 const credentials = { key: privateKey, cert: certificate };
 
-var http = require("https").Server(credentials, app);
+var http = require("https").server(credentials, app);
 var io = require("socket.io")(http);
 
 const PORT = process.env.PORT || 4002;
