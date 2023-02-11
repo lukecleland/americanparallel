@@ -57,6 +57,6 @@ Uses webkit speech recognition and speech generation to play the game. Once in t
 
 <https://jeopardynow.com>
 
-### Ooglebox. Free fast TV on the internet. Using Vanilla, React, Redux and Semantic UI.
+### Ooglebox. Free fast TV on the internet. Using Vanilla, React, Redux and Semantic UI. Android supprt. iOS support coming soon.
 
 <http://ooglebox.com>
