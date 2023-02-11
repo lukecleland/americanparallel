@@ -46,3 +46,7 @@ Were you rushing or dragging?
 <https://americanparallel.com/r3f/starwars>
 
 <https://americanparallel.com/r3f/testpattern>
+
+### Jeopardy! Game using Vanilla JS, jQuery, HTML, and CSS. Express, Node, and Socket.io for the backend.
+
+<https://jeopardynow.com>
