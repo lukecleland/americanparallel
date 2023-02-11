@@ -33,13 +33,17 @@ A place for projects, ideas, and apps
 
 <a href="https://americanparallel.com/whiplash/" target="_blank">https://americanparallel.com/whiplash/</a>
 
-Were you rushing or dragging?
+Uses handtrack.js to track the hand and then uses the hand position to control the start/stop of the video. The only question is... Were you rushing or dragging?
 
 ### Speech to image test between OpenAI and Unsplash
+
+Using webkit speech recognition to request images from both OpenAI and Unsplash. The images are then displayed side by side. Each request is timed and the results are displayed.
 
 <a href="https://americanparallel.com/speechtoimage/" target="_blank">https://americanparallel.com/speechtoimage/</a>
 
 ### React Three Fiber (ThreeJS) Tests using canvas and mp4 video
+
+Using js to to scan the video after converting it to a canvas element, then scans each pixel in real time to create a box or sphere primitive using the hue as z.
 
 <https://americanparallel.com/r3f/heads>
 
