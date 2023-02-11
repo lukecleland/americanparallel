@@ -49,4 +49,6 @@ Were you rushing or dragging?
 
 ### Jeopardy! Game using Vanilla JS, jQuery, HTML, and CSS. Express, Node, and Socket.io for the backend.
 
+Uses chrome voice recognition and speech generation to play the game. Once in the game simply ask for category followed by dollar value. For example "Rock Records for 200". Answers are given in the form of a question. For example "What is ..." or "Who is ..." etc.
+
 <https://jeopardynow.com>
