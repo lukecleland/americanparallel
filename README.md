@@ -31,10 +31,10 @@ A place for projects, ideas, and apps
 
 ### Handtracker test using https://github.com/victordibia/handtrack.js
 
-<https://americanparallel.com/whiplash/>
+<a href="https://americanparallel.com/whiplash/" target="_blank">https://americanparallel.com/whiplash/</a>
 
 Were you rushing or dragging?
 
 ### Speech to image test between OpenAI and Unsplash
 
-<https://americanparallel.com/speechtoimage/>
+<a href="https://americanparallel.com/speechtoimage/" target="_blank">https://americanparallel.com/speechtoimage/</a>
