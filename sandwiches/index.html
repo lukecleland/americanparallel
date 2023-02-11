@@ -98,7 +98,7 @@
         return;
       }
 
-      showImage(interim_transcript);
+      getUnsplashImage(interim_transcript);
 
       showText(interim_transcript);
     };
@@ -163,6 +163,27 @@
 
           $(".response").html(saidit);
         }
+      });
+    }
+
+    function getUnsplashImage(query) {
+      // get the image from unsplash
+      var now = new Date().getTime();
+      $.ajax({
+        url: "https://api.unsplash.com/search/photos",
+        data: {
+          query: query,
+          client_id: "hoWOwy_2K3IkfGFEqJIIIw98RNQnagQABQf_0q6lDJ0",
+        },
+        success: function (data) {
+          // get the image url
+          var image = data.results[0].urls.regular;
+          // send the image to the client
+          var nowThen = new Date().getTime();
+          $("body").append(
+            `<br><br><img style="width:256px;" src="${image}" />`
+          );
+        },
       });
     }
 
@@ -240,42 +261,42 @@
     // });
     // }
 
-    function showImage(qq) {
-      var params = {
-        q: qq,
-      };
+    // function showImage(qq) {
+    //   var params = {
+    //     q: qq,
+    //   };
 
-      $.ajax({
-        url: "https://api.gettyimages.com/v3/search/images?phrase=" + qq,
-        beforeSend: function (xhrObj) {
-          // Request headers
-          //xhrObj.setRequestHeader("Content-Type","multipart/form-data");
-          xhrObj.setRequestHeader("Api-Key", "5b4p2qdk5nrnspjzbvkm2wjb");
-        },
-        type: "GET",
-        // Request body
-        data: function (data) {
-          $(this);
-        },
-      })
-        .done(function (data) {
-          console.log(data);
-          //var imageToGet = data.value[0].thumbnailUrl;
-          //console.log(data.value[0].thumbnailUrl);
-          if (data.images[0].display_sizes[0].uri !== "") {
-            console.log("image added!");
-            //$('body').css('background-image','url('+data.images[0].display_sizes[0].uri+')');
-            $("body").append(
-              '<img src="' + data.images[0].display_sizes[0].uri + '" />'
-            );
-          }
+    //   $.ajax({
+    //     url: "https://api.gettyimages.com/v3/search/images?phrase=" + qq,
+    //     beforeSend: function (xhrObj) {
+    //       // Request headers
+    //       //xhrObj.setRequestHeader("Content-Type","multipart/form-data");
+    //       xhrObj.setRequestHeader("Api-Key", "5b4p2qdk5nrnspjzbvkm2wjb");
+    //     },
+    //     type: "GET",
+    //     // Request body
+    //     data: function (data) {
+    //       $(this);
+    //     },
+    //   })
+    //     .done(function (data) {
+    //       console.log(data);
+    //       //var imageToGet = data.value[0].thumbnailUrl;
+    //       //console.log(data.value[0].thumbnailUrl);
+    //       if (data.images[0].display_sizes[0].uri !== "") {
+    //         console.log("image added!");
+    //         //$('body').css('background-image','url('+data.images[0].display_sizes[0].uri+')');
+    //         $("body").append(
+    //           '<img src="' + data.images[0].display_sizes[0].uri + '" />'
+    //         );
+    //       }
 
-          //$('body').append('<img src="'+imageToGet+'" />');
-        })
-        .fail(function () {
-          console.log("error");
-        });
-    }
+    //       //$('body').append('<img src="'+imageToGet+'" />');
+    //     })
+    //     .fail(function () {
+    //       console.log("error");
+    //     });
+    // }
 
     function getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
