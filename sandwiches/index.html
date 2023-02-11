@@ -86,7 +86,7 @@
       var interim_transcript = "";
       var ir = "";
       for (var i = event.resultIndex; i < event.results.length; ++i) {
-        interim_transcript += event.results[i][getRandomInt(0, 9)].transcript;
+        interim_transcript += event.results[i][0].transcript;
         last_thing_you_said_ = interim_transcript.split(" ");
         last_thing_you_said = [
           last_thing_you_said_[last_thing_you_said_.length],
@@ -151,7 +151,7 @@
         if (typeof guesses[0] != "undefined") {
           var randomInt = getRandomInt(0, guesses.length);
 
-          var guess = guesses[0];
+          var guess = guesses[getRandomInt(0, guesses.length)];
 
           if (interim_transcript == "reload") {
             document.location.href = "/sandwhiches";
