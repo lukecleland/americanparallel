@@ -33,6 +33,8 @@ A place for projects, ideas, and apps
 
 <https://americanparallel.com/whiplash/>
 
+Were you rushing or dragging?
+
 ### Speech to image test between OpenAI and Unsplash
 
 <https://americanparallel.com/speechtoimage/>
