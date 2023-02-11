@@ -38,3 +38,9 @@ Were you rushing or dragging?
 ### Speech to image test between OpenAI and Unsplash
 
 <a href="https://americanparallel.com/speechtoimage/" target="_blank">https://americanparallel.com/speechtoimage/</a>
+
+### React Three Fiber (ThreeJS) Tests using canvas and mp4 video
+
+<https://americanparallel.com/r3f/heads>
+<https://americanparallel.com/r3f/starwars>
+<https://americanparallel.com/r3f/testpattern>
