@@ -53,6 +53,10 @@ Using js to to scan the video after converting it to a canvas element, then scan
 
 ### Jeopardy! Game using Vanilla JS, jQuery, HTML, and CSS. Express, Node, and Socket.io for the backend.
 
-Uses chrome voice recognition and speech generation to play the game. Once in the game simply ask for category followed by dollar value. For example "Rock Records for 200". Answers are given in the form of a question. For example "What is ..." or "Who is ..." etc.
+Uses webkit speech recognition and speech generation to play the game. Once in the game simply ask for category followed by dollar value. For example "Rock Records for 200". Answers are given in the form of a question. For example "What is ..." or "Who is ..." etc. May require a refresh if not questions are displayed due to 429 (too many requests).
 
 <https://jeopardynow.com>
+
+### Ooglebox. Free fast TV on the internet. Using Vanilla, React, Redux and Semantic UI.
+
+<http://ooglebox.com>
