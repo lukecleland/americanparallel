@@ -104,7 +104,7 @@
     };
 
     function prep(guess) {
-      var saying = guess.trim();
+      var saying = guess;
 
       saying = saying.replace(" lyrics", "");
       saying = saying.replace(" free", "");
@@ -126,6 +126,8 @@
       saying = saying.replace(" logo", "");
       saying = saying.replace(" box office", "");
       saying = saying.replace(" vhs", "");
+      saying = saying.replace(" youtube", "");
+      saying = saying.replace(" mp4", "");
       //saying = saying.replace("'", '');
 
       saying = saying.toLowerCase().trim();
