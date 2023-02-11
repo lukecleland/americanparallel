@@ -63,6 +63,6 @@ Uses webkit speech recognition and speech generation to play the game. Once in t
 
 ### Dashboard example for a company using ThreeJS, NodeJS and Semantic UI.
 
-This was a demo created for Convatech which is a mining company. The dashboard is a concept design for an app that would be used by operators on the field to interact with IoT sensors and devices. The dashboard is a 3D representation of the end to end converyor system. The user can click on the sections and expand to get more information. A greater vision would be able to deploy drones to inspect the system and then display the results in the dashboard.
+This was a demo created for Convatech which is a mining company. The dashboard is a concept design for an app that would be used by operators on the field to interact with IoT sensors and devices. The dashboard is a 3D representation of the end to end converyor system. The user can click on the sections and use an exploded view to get more information. A greater vision was to be able to deploy drones to inspect the system and then display the results in the dashboard.
 
 <http://lukecleland.com/convatech/>

@@ -1,0 +1,221 @@
+<html>
+    <head>
+        <meta property="og:title" content="...other's Sandwiches">
+        <meta property="og:site_name" content="...other's Sandwiches">
+        <meta property="og:url" content="http://otherssandwiches.com">
+        <meta property="og:image" content="http://thesandwichguide.com/wp-content/uploads/sandwich.jpg">
+        <meta property="og:description" content="Start to ask it some questions...">
+    </head>
+
+
+<div id="status"></div>
+
+<body></body>
+
+<style>
+    
+    body {
+        margin:0;
+        max-width: 100%;
+        height:auto;
+        background-size:cover;
+    }
+    
+    img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+<!--<script src="jquery.ogp.js"></script>-->
+<script>
+var recognizing = false;
+var recognition = new webkitSpeechRecognition();
+recognition.lang = 'en-AU';
+var previous_interim_transcript = '';
+
+recognition.continuous = false;
+recognition.interimResults = false;
+
+recognition.onstart = function() {
+    recognizing = true;
+    //document.getElementById('status').innerHTML = 'Listening';
+};
+
+recognition.onerror = function(event) {
+    console.log(event.error);
+};
+
+recognition.onend = function() {
+    recognizing = false;
+    //document.getElementById('status').innerHTML = 'Not listening please refresh';
+    var recognition = new webkitSpeechRecognition();
+};
+
+//var shortTermMemory = [];
+
+// $.getJSON('../memory/shortTermMemory.json?'+Math.random(), function (data) { 
+//     shortTermMemory = data;
+// });
+
+var prevTime, curTime, deltaTime;
+
+recognition.onresult = function(event) {
+    
+    var interim_transcript = '';
+    var ir = '';
+    for (var i = event.resultIndex; i < event.results.length; ++i) {
+        interim_transcript += event.results[i][0].transcript;
+        last_thing_you_said_ = interim_transcript.split(' ');
+        last_thing_you_said = [last_thing_you_said_[last_thing_you_said_.length]];
+        everything_youve_said_since_i_last_got_it_right = interim_transcript;
+    }
+    
+    if(previous_interim_transcript == interim_transcript) {
+        return
+    }
+
+    
+    
+    console.log(interim_transcript);
+    
+    // interim_transcript = everything_youve_said_since_i_last_got_it_right;
+    
+    // interim_transcript = '';
+                
+    // var saying = interim_transcript.trim();
+    
+    // saying = saying.replace(' lyrics', '');
+    // saying = saying.replace(' free', '');
+    // saying = saying.replace(' meme', '');
+    // saying = saying.replace(' gif', '');
+    // saying = saying.replace(' chords', '');
+    // saying = saying.replace(' quotes', '');
+    // saying = saying.replace(' reviews', '');
+    // saying = saying.replace(' review', '');
+    // saying = saying.replace(' pdf', '');
+    // saying = saying.replace(' summary', '');
+    // saying = saying.replace(' online', '');
+    // saying = saying.replace(' download', '');
+    // saying = saying.replace(' movie poster', '');
+    // saying = saying.replace(' movie', '');
+    // saying = saying.replace(' poster', '');
+    // saying = saying.replace(' dvd', '');
+    // saying = saying.replace(' imdb', '');
+    // saying = saying.replace(' logo', '');
+    // saying = saying.replace(' box office', '');
+    // saying = saying.replace(' vhs', '');
+    //saying = saying.replace("'", '');
+    
+    
+    
+    // saying = saying.toLowerCase().trim();
+    // interim_transcript = interim_transcript.toLowerCase().trim();
+    
+    // interim_transcript = interim_transcript.replace("'", '');
+    showImage(interim_transcript);
+  
+    
+    
+}
+
+
+function showImage(qq) {
+    var params = {
+        q : qq
+    };
+    
+    
+    $.ajax({
+        url: "https://api.cognitive.microsoft.com/bing/v5.0/images/search?" + $.param(params),
+        beforeSend: function(xhrObj){
+            // Request headers
+            xhrObj.setRequestHeader("Content-Type","multipart/form-data");
+            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","0e5ca60a0dc84a9194a99c3667477c41");
+        },
+        type: "POST",
+        // Request body
+        data: function(data){
+            $(this);
+        },
+    })
+    .done(function(data) {
+        var imageToGet = data.value[0].thumbnailUrl;
+        console.log(data.value[0].thumbnailUrl);
+        //$('body').css('background-image','url('+data.value[0].thumbnailUrl+')');
+        $('body').append('<img src="'+imageToGet+'" />');
+    })
+    .fail(function() {
+        console.log("error");
+    });
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function startDictation(event) {
+    if (recognizing) {
+        recognition.stop();
+        return;
+    }
+
+    recognition.lang = 'en-AU';
+    recognition.start();
+    
+}
+
+setInterval(function() {
+    interim_transcript = '';
+}, 3000);
+
+setInterval(function() {
+    if (!recognizing) {
+        recognition.lang = 'en-AU';
+        recognition.start();
+    }
+}, 1000);
+
+startDictation(event);
+
+</script>
+
+<body>
+
+    <!--<br><br><br><br><br><br><br><br><br><br><br><br>-->
+    <center>
+    <!--<h1 class="response">?</h1>-->
+    <div class="article">
+        
+    </div>
+    </center>
+    
+    <style>
+        h1 {
+            font-size:80px;
+        }
+        #status {
+            font-size:12px;
+            color:red;
+            font-weight:bold;
+            display:none;
+        }
+    </style>
+
+</body>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84733803-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</html>
