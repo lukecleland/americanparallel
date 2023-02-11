@@ -53,10 +53,16 @@ Using js to to scan the video after converting it to a canvas element, then scan
 
 ### Jeopardy! Game using Vanilla JS, jQuery, HTML, and CSS. Express, Node, and Socket.io for the backend.
 
-Uses webkit speech recognition and speech generation to play the game. Once in the game simply ask for category followed by dollar value. For example "Rock Records for 200". Answers are given in the form of a question. For example "What is ..." or "Who is ..." etc. May require a refresh if not questions are displayed due to 429 (too many requests).
+Uses webkit speech recognition and speech generation to play the game. Once in the game simply ask for category followed by dollar value. For example "Rock Records for 200". Answers are given in the form of a question. For example "What is ..." or "Who is ..." etc. May require a refresh if questions aren't displayed due to 429 (too many requests).
 
 <https://jeopardynow.com>
 
 ### Ooglebox. Free fast TV on the internet. Using Vanilla, React, Redux and Semantic UI. Android supprt. iOS support coming soon.
 
 <http://ooglebox.com>
+
+### Dashboard example for a company using ThreeJS, NodeJS and Semantic UI.
+
+This was a demo created for Convatech which is a mining company. The dashboard is a concept design for an app that would be used by operators on the field to interact with IoT sensors and devices. The dashboard is a 3D representation of the end to end converyor system. The user can click on the sections and expand to get more information. A greater vision would be able to deploy drones to inspect the system and then display the results in the dashboard.
+
+<http://lukecleland.com/convatech/>
