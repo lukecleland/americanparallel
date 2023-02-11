@@ -180,7 +180,7 @@
           var image = data.results[0].urls.regular;
           // send the image to the client
           var nowThen = new Date().getTime();
-          $("body").append(
+          $(".image-output").html(
             `<br><br><img style="width:256px;" src="${image}" />`
           );
         },
@@ -334,6 +334,7 @@
       <!--<div class="article">-->
 
       <!--</div>-->
+      <div class="image-output"></div>
     </center>
 
     <style>
