@@ -29,6 +29,10 @@
 
 A place for projects, ideas, and apps
 
+### Ooglebox. Free fast TV on the internet. Using VanillaJS with some jQuery. Android supprt. iOS support added.
+
+<http://ooglebox.com>
+
 ### Handtracker test using https://github.com/victordibia/handtrack.js
 
 <a href="https://americanparallel.com/whiplash/" target="_blank">https://americanparallel.com/whiplash/</a>
@@ -43,7 +47,7 @@ Using webkit speech recognition to request images from both OpenAI and Unsplash.
 
 ### React Three Fiber (ThreeJS) Tests using canvas and mp4 video
 
-Using js to to scan the video after converting it to a canvas element, then scans each pixel in real time to create a box or sphere primitive using the hue as z.
+Using js to to scan the image (or video press play) after converting it to a canvas element, then scans each pixel in real time to create a box or sphere primitive using the hue as z. Use the mouse for Orbit Controls.
 
 <https://americanparallel.com/r3f/heads>
 
@@ -56,10 +60,6 @@ Using js to to scan the video after converting it to a canvas element, then scan
 Uses webkit speech recognition and speech generation to play the game. Once in the game simply ask for category followed by dollar value. For example "Rock Records for 200". Answers are given in the form of a question. For example "What is ..." or "Who is ..." etc. May require a refresh if questions aren't displayed due to 429 (too many requests).
 
 <https://jeopardynow.com>
-
-### Ooglebox. Free fast TV on the internet. Using Vanilla, React, Redux and Semantic UI. Android supprt. iOS support coming soon.
-
-<http://ooglebox.com>
 
 ### Dashboard example for a company using ThreeJS, NodeJS and Semantic UI.
 
