@@ -11,8 +11,8 @@ Title: Delorean (highpoly)
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF('./scene-transformed.glb')
+export function Delorean(props) {
+  const { nodes, materials } = useGLTF('./delorean.glb')
 
   // materials.PaletteMaterial001.metalness = 1;
   // materials.PaletteMaterial001.roughness = 0.3;
@@ -35,4 +35,4 @@ export function Model(props) {
   )
 }
 
-useGLTF.preload('/scene-transformed.glb')
+useGLTF.preload('/delorean.glb')
