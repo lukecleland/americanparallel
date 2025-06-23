@@ -12,7 +12,7 @@ import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF('/scene-transformed.glb')
+  const { nodes, materials } = useGLTF('./scene-transformed.glb')
 
   // materials.PaletteMaterial001.metalness = 1;
   // materials.PaletteMaterial001.roughness = 0.3;
