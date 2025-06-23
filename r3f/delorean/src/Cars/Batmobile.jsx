@@ -26,4 +26,4 @@ export function BatMobile(props) {
   )
 }
 
-useGLTF.preload('/batmobile.glb')
+useGLTF.preload('./batmobile.glb')

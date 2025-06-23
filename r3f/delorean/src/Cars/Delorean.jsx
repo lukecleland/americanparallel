@@ -35,4 +35,4 @@ export function Delorean(props) {
   )
 }
 
-useGLTF.preload('/delorean.glb')
+useGLTF.preload('./delorean.glb')

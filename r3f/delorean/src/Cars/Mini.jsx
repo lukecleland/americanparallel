@@ -140,4 +140,4 @@ export function Mini(props) {
   )
 }
 
-useGLTF.preload('/mini.glb')
+useGLTF.preload('./mini.glb')

@@ -26,4 +26,4 @@ export function Lightning(props) {
   )
 }
 
-useGLTF.preload('/lightning.glb')
+useGLTF.preload('./lightning.glb')
