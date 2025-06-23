@@ -1,0 +1,11 @@
+Model Information:
+* title:	Delorean (highpoly)
+* source:	https://sketchfab.com/3d-models/delorean-highpoly-18ecd0636aaa4373a903b76f9050c291
+* author:	Cristianolop (https://sketchfab.com/Cristianolop)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Delorean (highpoly)" (https://sketchfab.com/3d-models/delorean-highpoly-18ecd0636aaa4373a903b76f9050c291) by Cristianolop (https://sketchfab.com/Cristianolop) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
