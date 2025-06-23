@@ -11,7 +11,7 @@ import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function BatMobile(props) {
-  const { nodes, materials } = useGLTF('/batmobile.glb')
+  const { nodes, materials } = useGLTF('./batmobile.glb')
   return (
     <group {...props} dispose={null}>
       <group scale={0.025}>

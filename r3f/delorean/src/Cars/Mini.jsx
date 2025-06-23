@@ -11,7 +11,7 @@ import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function Mini(props) {
-  const { nodes, materials } = useGLTF('/mini.glb')
+  const { nodes, materials } = useGLTF('./mini.glb')
   return (
     <group {...props} dispose={null}>
       <group position={[56.679, 12.434, 0.076]} rotation={[0, -Math.PI / 2, 0]}>

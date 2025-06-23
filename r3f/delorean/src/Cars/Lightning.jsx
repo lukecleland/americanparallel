@@ -11,7 +11,7 @@ import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function Lightning(props) {
-  const { nodes, materials } = useGLTF('/lightning.glb')
+  const { nodes, materials } = useGLTF('./lightning.glb')
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
