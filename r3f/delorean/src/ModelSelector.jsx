@@ -1,50 +1,45 @@
-import { Canvas, useFrame } from '@react-three/fiber';
-import React, { useRef } from 'react';
+import { forwardRef, useRef, useImperativeHandle } from 'react';
+import { RotatingThumbnail } from './RotatingThumbnail';
+import { useCarStore } from './stores/carStore';
 
-function RotatingModel({ Model }) {
-  const ref = useRef();
+export const ModelSelector = forwardRef(({ models, onSelect }, ref) => {
+  const stripRef = useRef(null);
+  const selectedIndex = useCarStore((s) => s.index); 
 
-  useFrame((_, delta) => {
-    if (ref.current) {
-      ref.current.rotation.y += delta * 0.5;
-    }
-  });
+  useImperativeHandle(ref, () => ({
+    scrollToIndex: (i) => {
+      const child = stripRef.current?.children[i];
+      child?.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    },
+  }));
 
-  return <Model ref={ref} scale={0.5} />;
-}
-
-export const ModelSelector = ({ models, selectedIndex, onSelect }) => {
   return (
-    <div style={{
-      position: 'absolute',
-      bottom: '20px',
-      width: '100%',
-      display: 'flex',
-      justifyContent: 'center',
-      gap: '1rem',
-      zIndex: 10,
-    }}>
+    <div
+      ref={stripRef}
+      style={{
+        position: 'absolute',
+        bottom: 20,
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '2rem',
+        zIndex: 10,
+        cursor: 'pointer',
+        overflowX: 'auto',
+      }}
+    >
       {models.map((Model, i) => (
-        <div
-          key={i}
-          onClick={() => onSelect(i)}
-          style={{
-            width: 80,
-            height: 80,
-            border: i === selectedIndex ? '2px solid #333' : '2px solid transparent',
-            borderRadius: 8,
-            overflow: 'hidden',
-            cursor: 'pointer',
-            background: '#eee',
-          }}
-        >
-          <Canvas camera={{ position: [0, 0, 3] }}>
-            <ambientLight intensity={1.5} />
-            <directionalLight position={[5, 5, 5]} />
-            <RotatingModel Model={Model} />
-          </Canvas>
+        <div onClick={() => (
+          console.log(`Selected model: ${Model.name ?? i}`),
+          onSelect(i)
+        )}>
+          <RotatingThumbnail
+            key={Model.name ?? i}
+            Model={Model}
+            active={i === selectedIndex}
+          />
         </div>
       ))}
     </div>
   );
-};
+});
