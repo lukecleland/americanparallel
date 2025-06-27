@@ -5,4 +5,11 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: "./",
+  esbuild: {
+    pure: ["console.log"], // example: have esbuild remove any console.log
+    minifyIdentifiers: false, // but keep variable names
+  },
+  build: {
+    minify: "esbuild",
+  },
 });
