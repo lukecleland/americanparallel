@@ -13,7 +13,6 @@ export function RenderCar({ Car }) {
 
   return (
     <>
-      {/* Lights */}
       <ambientLight intensity={0.4} />
       <directionalLight
         castShadow
@@ -39,7 +38,6 @@ export function RenderCar({ Car }) {
         <shadowMaterial opacity={0.1} />
       </mesh>
 
-      {/* Optional HDRI lighting */}
       <Environment preset="sunset" />
 
       <OrbitControls />

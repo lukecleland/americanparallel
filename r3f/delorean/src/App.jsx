@@ -66,7 +66,7 @@ export default function App() {
       />
 
       <img
-        src={`/cars/${Car.name}.png`}        /* or a fixed logo file */
+        src={`/cars/${Car.name}.png`} 
         alt={`${Car.name} logo`}
         style={{
           position: 'absolute',
@@ -74,8 +74,8 @@ export default function App() {
           left: 20,
           width: 200,
           height: 'auto',
-          pointerEvents: 'none',                    // let clicks pass through
-          zIndex: 20,                               // above the selector strip
+          pointerEvents: 'none',                  
+          zIndex: 20,
         }}
       />
     </div>

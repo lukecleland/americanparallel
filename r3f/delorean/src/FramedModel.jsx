@@ -24,7 +24,7 @@ export function FramedModel({ Model, options = {} }) {
     const fitWidthDistance = maxDim / (2 * Math.tan((camera.fov * Math.PI) / 360)) / camera.aspect;
     const distance = 1.2 * Math.max(fitHeightDistance, fitWidthDistance);
 
-    camera.position.set(0, 5, distance);
+    camera.position.set(0, 2, distance);
     camera.lookAt(0, 0, 0);
     camera.updateProjectionMatrix();
   }, [Model, camera]);
@@ -35,18 +35,38 @@ export function FramedModel({ Model, options = {} }) {
     }
   });
 
+  // slide in from off screen position,x-axis when Model changes
+  useEffect(() => {
+    if (wrapperRef.current) {
+      wrapperRef.current.position.x = -10; // Start off-screen
+      wrapperRef.current.rotation.y = 0; // Reset rotation
+      wrapperRef.current.scale.set(0.1, 0.1, 0.1); // Start small
+      const targetPosition = new Vector3(0, 0, 0);
+      const targetScale = new Vector3(1, 1, 1);
+
+      // Animate to target position and scale
+      const duration = 1000; // milliseconds
+      let startTime = null;
+
+      const animate = (time) => {
+        if (!startTime) startTime = time;
+        const elapsed = time - startTime;
+        const t = Math.min(elapsed / duration, 1);
+
+        wrapperRef.current.position.lerp(targetPosition, t);
+        wrapperRef.current.scale.lerp(targetScale, t);
+
+        if (t < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+
+      requestAnimationFrame(animate);
+    }
+  }, [Model]);
+
   return (
     <>
-      {/* {options.showLogo && (
-        <mesh position={[0, 2, 0]} scale={[1, 1, 1]}>
-          <planeGeometry args={[2, 1]} />
-          <meshBasicMaterial
-            map={new THREE.TextureLoader().load(`/cars/${Model.name.toString()}.png`)}
-            transparent
-          />
-        </mesh>
-      )} */}
-     
       <group ref={wrapperRef}>
         <group ref={modelRef}>
           <Model />
