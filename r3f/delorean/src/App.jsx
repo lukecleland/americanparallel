@@ -66,7 +66,7 @@ export default function App() {
       />
 
       <img
-        src={`/cars/${Car.name}.png`} 
+        src={`./cars/${Car.name}.png`} 
         alt={`${Car.name} logo`}
         style={{
           position: 'absolute',
