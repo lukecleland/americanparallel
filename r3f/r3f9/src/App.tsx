@@ -76,14 +76,13 @@ function PixelGrid({ w, h, scale = 1, videoRef, canvasRef }: PixelGridProps) {
       for (let x = 0; x < w; x++, idx++) {
         const k = idx * 4;
 
-        // Compute brightness/luminance from RGB using Rec. 709 weights:
         const r = data[k] / 255;
         const g = data[k + 1] / 255;
         const b = data[k + 2] / 255;
-        const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-
-        // Map luminance [0,1] to some Z range, e.g. -scale*5 to scale*5
-        const z = (luminance - 0.5) * scale * 200;
+        const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b; // perceived brightness
+        const levels = 40; // tweak 4‑16
+        const lumQ = Math.round(lum * levels) / levels; // snap to nearest band
+        const z = (lumQ - 0.5) * 20; // plate‑like depth
 
         dummy.position.set((x - w / 2) * scale, (h / 2 - y) * scale, -z);
         dummy.updateMatrix();
