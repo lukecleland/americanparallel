@@ -2,6 +2,7 @@ import { Canvas, useFrame, extend } from "@react-three/fiber";
 import { OrbitControls, StatsGl, shaderMaterial } from "@react-three/drei";
 import { useRef, useEffect, useMemo, useState } from "react";
 import * as THREE from "three";
+import headsMp4 from "/heads.mp4";
 
 /**
  * Pixel‑grid instanced visualiser – TypeScript, r3f v9, Three r177.
@@ -11,20 +12,19 @@ import * as THREE from "three";
 
 const InstancedColorMaterial = shaderMaterial(
   {},
-  // vertex shader
+  /* vertex */
   `
+  attribute vec3 aColor;           // custom per-instance colour
   varying vec3 vColor;
-
   void main() {
-    vColor = instanceColor;
+    vColor = aColor;
     vec4 mvPosition = modelViewMatrix * instanceMatrix * vec4(position, 1.0);
     gl_Position = projectionMatrix * mvPosition;
   }
   `,
-  // fragment shader
+  /* fragment */
   `
   varying vec3 vColor;
-
   void main() {
     gl_FragColor = vec4(vColor, 1.0);
   }
@@ -32,6 +32,7 @@ const InstancedColorMaterial = shaderMaterial(
 );
 
 extend({ InstancedColorMaterial });
+({ InstancedColorMaterial });
 
 interface PixelGridProps {
   w: number;
@@ -57,7 +58,7 @@ function PixelGrid({ w, h, scale = 1, videoRef, canvasRef }: PixelGridProps) {
     const colors = new Float32Array(w * h * 3);
     const attr = new THREE.InstancedBufferAttribute(colors, 3);
     mesh.instanceColor = attr;
-    mesh.geometry.setAttribute("instanceColor", attr);
+    mesh.geometry.setAttribute("aColor", attr);
   }, [w, h]);
 
   useFrame(() => {
@@ -121,7 +122,7 @@ export default function App() {
     const v = videoRef.current;
     if (!v) return;
 
-    v.src = "/heads.mp4";
+    v.src = headsMp4;
     v.loop = true;
     v.muted = true; // autoplay OK
     v.playsInline = true;
