@@ -4,12 +4,6 @@ import { useRef, useEffect, useMemo, useState } from "react";
 import * as THREE from "three";
 import headsMp4 from "/heads.mp4";
 
-/**
- * Pixel‑grid instanced visualiser – TypeScript, r3f v9, Three r177.
- * – Down‑samples a hidden <video> to w×h, maps each pixel to a cube.
- * – Colours updated each frame via `setColorAt`, with a manual instanceColor buffer.
- */
-
 const InstancedColorMaterial = shaderMaterial(
   {},
   /* vertex */
@@ -32,7 +26,6 @@ const InstancedColorMaterial = shaderMaterial(
 );
 
 extend({ InstancedColorMaterial });
-({ InstancedColorMaterial });
 
 interface PixelGridProps {
   w: number;
@@ -123,7 +116,7 @@ export default function App() {
 
     v.src = headsMp4;
     v.loop = true;
-    v.muted = true; // autoplay OK
+    v.muted = true;
     v.playsInline = true;
     v.crossOrigin = "anonymous";
     v.play().catch(() => {});
@@ -163,7 +156,7 @@ export default function App() {
       />
 
       <Canvas
-        camera={{ position: [20, 10, 80], fov: 60 }}
+        camera={{ position: [10, 20, 60], fov: 70 }}
         style={{ width: "100vw", height: "100vh", display: "block" }}
       >
         <PixelGrid
@@ -177,7 +170,6 @@ export default function App() {
         <StatsGl />
       </Canvas>
 
-      {/* Overlay unmute button if muted */}
       {muted && (
         <div
           onClick={handleUnmute}
